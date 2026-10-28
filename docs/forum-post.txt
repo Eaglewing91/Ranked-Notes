@@ -4,7 +4,7 @@ THREAD TITLE:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           📝  RANKED NOTES  📝
   Attach your own notes to ranked war items
-  v2.2.0 · Free & open source (MIT) · Desktop & Torn PDA · No API key
+  v2.2.1 · Free & open source (MIT) · Desktop & Torn PDA · No API key
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ever lost track of which Kodachi you loaned out, what you paid for that Orange rifle, or which armour piece is earmarked for war? Ranked Notes adds a small + to every ranked war item so you can write a note on THAT EXACT item, and the note comes back wherever that item shows up.
 It's read-only and private. No API key, no requests of any kind, and your notes never leave your own browser.

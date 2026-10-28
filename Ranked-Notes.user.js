@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ranked Notes
 // @namespace    https://github.com/Eaglewing91
-// @version      2.2.0
+// @version      2.2.1
 // @author       Eaglewing [571041]
 // @license      MIT
 // @homepageURL  https://github.com/Eaglewing91/Ranked-Notes
@@ -237,7 +237,8 @@
     btn.type = 'button';
     btn.className = 'twn-btn';
     btn.textContent = '+';
-    for (const ev of ['pointerdown', 'mousedown', 'mouseup', 'touchstart', 'dblclick']) btn.addEventListener(ev, stop, true);
+    for (const ev of ['pointerdown', 'mousedown', 'mouseup', 'dblclick']) btn.addEventListener(ev, stop, true);
+    btn.addEventListener('touchstart', (e) => { e.stopPropagation(); e.stopImmediatePropagation(); }, { capture: true, passive: true });
     btn.addEventListener('click', (e) => { stop(e); openEditor(wrap.twnId, name, btn); }, true);
     wrap.append(btn);
     paint(wrap);
@@ -255,8 +256,14 @@
   function place(container, ident, target, before) {
     let w = container.querySelector(':scope .twn-wrap');
     if (!ident) { if (w) w.remove(); return; }
-    if (w && w.twnId === ident.id) return;
-    if (w) w.remove();
+    if (w && w.twnId === ident.id) { w.twnPending = null; return; }
+    if (w) {
+      if (editor && editorBtn && w.contains(editorBtn)) return;          // don't pull it out from under the user
+      // Only switch to a different item after seeing the same new identity twice in a row,
+      // so the + can't flicker if a page briefly shows the item differently.
+      if (w.twnPending !== ident.id) { w.twnPending = ident.id; return; }
+      w.remove();
+    }
     w = makeWidget(ident.id, ident.name);
     if (before && before.parentNode === target) target.insertBefore(w, before);
     else target.appendChild(w);
@@ -277,7 +284,8 @@
   }
 
   function placeInPanels() {
-    for (const c of panels()) {
+    const list = panels().filter((el, _, all) => !all.some((o) => o !== el && o.contains(el)));
+    for (const c of list) {
       if (c.style.display === 'none' || c.closest('#twn-editor')) continue;
       // Auction house only lists ranked gear, so (like the Price Checker) any weapon or armour counts there.
       const eligible = isRwPanel(c) || (location.pathname === '/amarket.php' && hasGearStats(c));
@@ -306,7 +314,7 @@
 
   /* ---------------- note editor ---------------- */
   let editor = null;
-  function closeEditor() { if (editor) { editor.remove(); editor = null; } }
+  function closeEditor() { if (editor) { editor.remove(); editor = null; editorBtn = null; } }
 
   function openEditor(id, name, btn) {
     closeEditor();
@@ -338,6 +346,7 @@
     for (const ev of ['pointerdown', 'mousedown', 'click', 'touchstart']) editor.addEventListener(ev, (e) => e.stopPropagation());
 
     document.body.appendChild(editor);
+    editorBtn = btn;
     const r = btn.getBoundingClientRect();
     const w = editor.offsetWidth, h = editor.offsetHeight;
     editor.style.left = Math.min(Math.max(8, r.left), window.innerWidth - w - 8) + 'px';
@@ -351,7 +360,26 @@
   document.addEventListener('pointerdown', (e) => {
     if (editor && !editor.contains(e.target) && !e.target.closest?.('.twn-wrap')) closeEditor();
   }, true);
-  window.addEventListener('resize', closeEditor);
+  // Phones resize the window when the on-screen keyboard opens, so never close on resize:
+  // just keep the note box on screen.
+  let editorBtn = null;
+  function positionEditor() {
+    if (!editor || !editorBtn) return;
+    const vv = window.visualViewport;
+    const vw = vv ? vv.width : window.innerWidth, vh = vv ? vv.height : window.innerHeight;
+    const ox = vv ? vv.offsetLeft : 0, oy = vv ? vv.offsetTop : 0;
+    const r = editorBtn.isConnected ? editorBtn.getBoundingClientRect() : null;
+    const w = editor.offsetWidth, h = editor.offsetHeight;
+    let left = r ? r.left : (vw - w) / 2;
+    let top = r ? r.bottom + 6 : 8;
+    if (top + h > oy + vh - 8) top = r ? r.top - h - 6 : 8;
+    left = Math.min(Math.max(ox + 8, left), ox + vw - w - 8);
+    top = Math.min(Math.max(oy + 8, top), oy + vh - h - 8);
+    editor.style.left = left + 'px';
+    editor.style.top = top + 'px';
+  }
+  window.addEventListener('resize', positionEditor);
+  window.visualViewport?.addEventListener('resize', positionEditor);
 
   /* ---------------- styles ---------------- */
   function addStyles() {

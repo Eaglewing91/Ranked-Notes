@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.1
+- Fix (Torn PDA / phones): the note box no longer closes the moment it opens. Opening the on-screen keyboard resized the window, which closed the box; it now stays open and moves to stay on screen
+- Fix: taps on the + are no longer cancelled on touch screens
+- The + can no longer flicker or be swapped while its note box is open
+
 ## 2.2.0 — First public release
 - A + on every ranked war item (yellow, orange or red weapons and armour), whatever its bonus
 - Works in the faction armoury, Items, auction house, Item Market, bazaars, display cases and trades
