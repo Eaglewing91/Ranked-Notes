@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ranked Notes forum post</title>
+<style>
+  body{margin:0;background:#e9eaec;font:14px/1.5 Arial,Helvetica,sans-serif;color:#222}
+  .bar{position:sticky;top:0;z-index:2;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:12px 16px;background:#24272c;color:#eee}
+  .bar b{font-size:15px}
+  .bar button{background:#ff7518;color:#111;border:0;border-radius:8px;padding:9px 16px;font-size:14px;font-weight:bold;cursor:pointer}
+  .bar span{font-size:12.5px;color:#bbb}
+  .title{max-width:760px;margin:16px auto 0;padding:0 16px;font-size:13px;color:#444}
+  .title code{background:#fff;border:1px solid #ccc;border-radius:4px;padding:3px 6px;display:inline-block;margin-top:4px;color:#111}
+  #post{max-width:760px;margin:12px auto 32px;padding:20px;background:#fff;border:1px solid #ccc;border-radius:6px}
+  #post img{max-width:100%;height:auto}
+</style>
+</head>
+<body>
+<div class="bar">
+  <b>Ranked Notes: forum post</b>
+  <span id="msg">Press Copy post, then paste into the Torn forum editor.</span>
+  <button type="button" id="copy">Copy post</button>
+</div>
+<div class="title">Thread title:<br><code>[Script] Ranked Notes: attach your own notes to ranked war items</code></div>
+
+<div id="post">
+<p style="text-align:center"><span style="font-size:22px"><b>📝 Ranked Notes 📝</b></span><br>
+<b>Attach your own notes to ranked war items</b><br>
+<i>v2.2.0 · Free &amp; open source (MIT) · Desktop &amp; Torn PDA · No API key needed</i></p>
+
+<p>Hi all,</p>
+<p>Ever lost track of which Kodachi you loaned out, what you paid for that Orange rifle, or which armour piece is earmarked for war? <b>Ranked Notes</b> adds a small <b>+</b> to every ranked war item so you can write a note on <i>that exact item</i>, and the note comes back wherever that item shows up.</p>
+<p>It's <b>read-only and private</b>. It needs no API key, makes no requests of any kind, and your notes never leave your own browser.</p>
+
+<hr>
+<p><span style="font-size:17px"><b>✨ What it does</b></span></p>
+<ul>
+<li><b>A + on every ranked item</b>: any yellow, orange or red weapon or armour gets a + when you open it, whatever its bonus</li>
+<li><b>Notes tied to one item</b>: two identical Kodachis keep their own separate notes</li>
+<li><b>Follows the item</b>: the same item is recognised across pages, so its note comes back wherever you see it</li>
+<li><b>See notes at a glance</b>: a solid orange + means that item already has a note</li>
+<li><b>Quick editing</b>: add, edit or delete notes up to 300 characters. Ctrl+Enter saves, Esc closes</li>
+<li><b>Synced tabs</b>: edit a note in one Torn tab and your other open tabs update too</li>
+</ul>
+<p style="text-align:center"><img src="https://raw.githubusercontent.com/Eaglewing91/Ranked-Notes/main/docs/screenshots/button-states.png" alt="The + button with no note, and solid orange when the item has a note" style="max-width:100%;width:267px"></p>
+
+<hr>
+<p><span style="font-size:17px"><b>📍 Where it works</b></span></p>
+<ul>
+<li>Faction armoury</li>
+<li>Items</li>
+<li>Auction house</li>
+<li>Item Market</li>
+<li>Bazaars</li>
+<li>Display cases</li>
+<li>Trades</li>
+</ul>
+<p>Open any ranked item and the + appears at the end of its first description line, for example: <i>The SIG 552 is a Rifle Weapon.</i> <b>[+]</b></p>
+
+<hr>
+<p><span style="font-size:17px"><b>🗒️ Writing a note</b></span></p>
+<p>Click the + and a small note box opens for that item. Type your note and press Save. That's it. Next time you open the same item, anywhere in Torn, the + will be solid orange and your note will be waiting.</p>
+<p style="text-align:center"><img src="https://raw.githubusercontent.com/Eaglewing91/Ranked-Notes/main/docs/screenshots/note-editor.png" alt="The note box with a saved note, Delete and Save buttons" style="max-width:100%;width:322px"></p>
+
+<hr>
+<p><span style="font-size:17px"><b>🔗 How notes stay with the right item</b></span></p>
+<p>Every ranked item rolls its own stats. Ranked Notes links each note to the item's exact <b>name, damage, accuracy or armour, quality and bonus values</b>, so no two items realistically share a note. Because those stats appear on every page, the same item is recognised wherever it's listed. If an item's stats can't be read, it uses the weapon's unique ID instead, when Torn shows one.</p>
+
+<hr>
+<p><span style="font-size:17px"><b>💾 How long notes are kept</b></span></p>
+<p>Notes don't expire. They stay until you delete them, clear your browser's site data for Torn, or reinstall Torn PDA. They're saved <b>per browser and per device</b>, so notes made on your PC won't appear in Torn PDA or on another computer.</p>
+
+<hr>
+<p><span style="font-size:17px"><b>✅ Torn rules &amp; your privacy</b></span></p>
+<p>Ranked Notes only reads the item you've opened on the page you're viewing. It:</p>
+<ul>
+<li>makes <b>no requests</b> of any kind: no Torn pages, no API calls, no external sites</li>
+<li>never clicks, submits or triggers anything on the page</li>
+<li>stops clicks on its + so they never reach Torn's own Buy, Bid or Loan buttons</li>
+<li>doesn't need or ask for an API key</li>
+</ul>
+<p>Tampermonkey checks GitHub for updates to the script. That's done by Tampermonkey itself, goes to GitHub only and sends no Torn data.</p>
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%">
+<tr><td><b>Data Storage</b></td><td>Only locally (your notes, in your browser)</td></tr>
+<tr><td><b>Data Sharing</b></td><td>Nobody</td></tr>
+<tr><td><b>Purpose of Use</b></td><td>Other: personal notes on ranked war items</td></tr>
+<tr><td><b>Key Storage &amp; Sharing</b></td><td>Not stored / Not shared (no API key used)</td></tr>
+<tr><td><b>Key Access Level</b></td><td>None required</td></tr>
+</table>
+
+<hr>
+<p><span style="font-size:17px"><b>⬇️ Install</b></span></p>
+<p><b>Desktop (Tampermonkey / Violentmonkey):</b> install the extension, then click<br>
+<a href="https://github.com/Eaglewing91/Ranked-Notes/raw/main/Ranked-Notes.user.js">https://github.com/Eaglewing91/Ranked-Notes/raw/main/Ranked-Notes.user.js</a><br>
+and confirm. Updates install automatically.</p>
+<p><b>Torn PDA (Android &amp; iOS):</b> open the script from the GitHub page below, copy all of it, add it as a new userscript in Torn PDA's userscript settings, then reload Torn.</p>
+<p><b>GitHub:</b> <a href="https://github.com/Eaglewing91/Ranked-Notes">https://github.com/Eaglewing91/Ranked-Notes</a></p>
+
+<hr>
+<p><span style="font-size:17px"><b>💬 Feedback</b></span></p>
+<p>Suggestions and bug reports are very welcome. If the + is missing on a ranked item, reply here with which page it was on. Reply here, open an issue on GitHub, or mail me in game.</p>
+<p>Torn staff are welcome to contact me with any concerns about this script.</p>
+<p><i>Ranked items are found the same way the TORN Auction Price Checker reads Torn's item panels; Ranked Notes uses only that page-reading approach and contacts no outside service. Ranked Notes is a fan-made script and is not affiliated with or endorsed by Torn.</i></p>
+<p>Eaglewing [571041]</p>
+</div>
+
+<script>
+document.getElementById('copy').addEventListener('click', async () => {
+  const post = document.getElementById('post');
+  const msg = document.getElementById('msg');
+  try {
+    await navigator.clipboard.write([new ClipboardItem({
+      'text/html': new Blob([post.innerHTML], { type: 'text/html' }),
+      'text/plain': new Blob([post.innerText], { type: 'text/plain' })
+    })]);
+    msg.textContent = 'Copied! Now paste into the Torn forum editor.';
+  } catch (e) {
+    const r = document.createRange(); r.selectNodeContents(post);
+    const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    const ok = document.execCommand('copy'); s.removeAllRanges();
+    msg.textContent = ok ? 'Copied! Now paste into the Torn forum editor.' : 'Select the post and copy it manually (Ctrl+A, Ctrl+C).';
+  }
+});
+</script>
+</body>
+</html>

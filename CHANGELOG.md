@@ -11,3 +11,6 @@
 - Notes sync across open Torn tabs
 - Torn PDA support
 - Read-only: no requests, no API key, nothing sent anywhere
+
+## Docs
+- Forum post (`docs/forum-post.html`, with a plain-text version) and screenshots of the + button and note box in `docs/`

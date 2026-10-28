@@ -1,0 +1,72 @@
+THREAD TITLE:
+[Script] Ranked Notes: attach your own notes to ranked war items
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          📝  RANKED NOTES  📝
+  Attach your own notes to ranked war items
+  v2.2.0 · Free & open source (MIT) · Desktop & Torn PDA · No API key
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Ever lost track of which Kodachi you loaned out, what you paid for that Orange rifle, or which armour piece is earmarked for war? Ranked Notes adds a small + to every ranked war item so you can write a note on THAT EXACT item, and the note comes back wherever that item shows up.
+It's read-only and private. No API key, no requests of any kind, and your notes never leave your own browser.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▌ ✨ WHAT IT DOES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+◆ A + on every ranked item – any yellow, orange or red weapon or armour gets a + when you open it, whatever its bonus
+◆ Notes tied to one item – two identical Kodachis keep their own separate notes
+◆ Follows the item – the same item is recognised across pages, so its note comes back wherever you see it
+◆ See notes at a glance – a solid orange + means that item already has a note
+◆ Quick editing – add, edit or delete notes up to 300 characters. Ctrl+Enter saves, Esc closes
+◆ Synced tabs – edit a note in one Torn tab and your other open tabs update too
+[IMAGE: https://raw.githubusercontent.com/Eaglewing91/Ranked-Notes/main/docs/screenshots/button-states.png]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▌ 📍 WHERE IT WORKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+◆ Faction armoury
+◆ Items
+◆ Auction house
+◆ Item Market
+◆ Bazaars
+◆ Display cases
+◆ Trades
+Open any ranked item and the + appears at the end of its first description line, e.g. "The SIG 552 is a Rifle Weapon. [+]"
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▌ 🗒️ WRITING A NOTE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Click the + and a small note box opens for that item. Type your note and press Save. Next time you open the same item, anywhere in Torn, the + will be solid orange and your note will be waiting.
+[IMAGE: https://raw.githubusercontent.com/Eaglewing91/Ranked-Notes/main/docs/screenshots/note-editor.png]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▌ 🔗 HOW NOTES STAY WITH THE RIGHT ITEM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Every ranked item rolls its own stats. Ranked Notes links each note to the item's exact name, damage, accuracy or armour, quality and bonus values, so no two items realistically share a note. Because those stats appear on every page, the same item is recognised wherever it's listed. If an item's stats can't be read, it uses the weapon's unique ID instead, when Torn shows one.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▌ 💾 HOW LONG NOTES ARE KEPT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Notes don't expire. They stay until you delete them, clear your browser's site data for Torn, or reinstall Torn PDA. They're saved per browser and per device, so notes made on your PC won't appear in Torn PDA or on another computer.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▌ ✅ TORN RULES & YOUR PRIVACY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Ranked Notes only reads the item you've opened on the page you're viewing. It:
+◆ makes no requests of any kind – no Torn pages, no API calls, no external sites
+◆ never clicks, submits or triggers anything on the page
+◆ stops clicks on its + so they never reach Torn's own Buy, Bid or Loan buttons
+◆ doesn't need or ask for an API key
+Tampermonkey checks GitHub for updates to the script. That's done by Tampermonkey itself, goes to GitHub only and sends no Torn data.
+◆ Data Storage: Only locally (your notes, in your browser)
+◆ Data Sharing: Nobody
+◆ Purpose of Use: Other – personal notes on ranked war items
+◆ Key Storage & Sharing: Not stored / Not shared (no API key used)
+◆ Key Access Level: None required
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▌ ⬇️ INSTALL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Desktop (Tampermonkey / Violentmonkey): install the extension, then open this link and confirm. Updates install automatically.
+https://github.com/Eaglewing91/Ranked-Notes/raw/main/Ranked-Notes.user.js
+Torn PDA (Android & iOS): open the script from the GitHub page, copy all of it, add it as a new userscript in Torn PDA's userscript settings, then reload Torn.
+GitHub: https://github.com/Eaglewing91/Ranked-Notes
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▌ 💬 FEEDBACK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Suggestions and bug reports are very welcome. If the + is missing on a ranked item, tell me which page it was on. Reply here, open an issue on GitHub, or mail me in game.
+Torn staff are welcome to contact me with any concerns about this script.
+Ranked items are found the same way the TORN Auction Price Checker reads Torn's item panels; Ranked Notes uses only that page-reading approach and contacts no outside service. Ranked Notes is a fan-made script and is not affiliated with or endorsed by Torn.
+Eaglewing [571041]
